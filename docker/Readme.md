@@ -1,0 +1,2 @@
+- 修改broker.conf ip
+- console地址: http://localhost:8000/#/topic
