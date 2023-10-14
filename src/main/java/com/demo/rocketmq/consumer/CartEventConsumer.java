@@ -1,6 +1,6 @@
-package com.baeldung.rocketmq.consumer;
+package com.demo.rocketmq.consumer;
 
-import com.baeldung.rocketmq.event.CartItemEvent;
+import com.demo.rocketmq.event.CartItemEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;

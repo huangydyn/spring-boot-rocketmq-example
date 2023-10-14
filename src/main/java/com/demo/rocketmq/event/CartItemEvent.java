@@ -1,4 +1,4 @@
-package com.baeldung.rocketmq.event;
+package com.demo.rocketmq.event;
 
 public class CartItemEvent {
     private int id;

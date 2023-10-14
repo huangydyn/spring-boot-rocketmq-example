@@ -1,8 +1,9 @@
-package com.baeldung.rocketmq.producer;
+package com.demo.rocketmq.producer;
 
 
-import com.baeldung.rocketmq.consumer.CartEventConsumer;
-import com.baeldung.rocketmq.event.CartItemEvent;
+import com.demo.rocketmq.consumer.CartEventConsumer;
+import com.demo.rocketmq.event.CartItemEvent;
+import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,8 @@ public class CartEventProducer {
         CartItemEvent event = new CartItemEvent(id, "bike" + id, 1);
         logger.info("[Send Msg] send msg " + event);
 
-        rocketMQTemplate.convertAndSend("cart-item-add-topic", event);
+        SendResult sendResult = rocketMQTemplate.syncSend("cart-item-add-topic", event);
+        logger.info("[Send Msg] send msg result msgId {}, offset {} " + sendResult.getMsgId(),
+                sendResult.getQueueOffset());
     }
 }
